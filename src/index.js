@@ -1,5 +1,7 @@
 import app from './app';
 
-app.listen(4000);
+const port = app.get('port')
 
-console.log('server on port', 4000);
+app.listen(port);
+
+console.log('server on port', port);
