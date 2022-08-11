@@ -1,12 +1,32 @@
-@api = http://localhost:4000/PRODUCT 
+@api = http://localhost:4000/product 
 
+### getting all products
 GET {{api}}
 
-###
+### creating new product
 POST {{api}}
 Content-Type: application/json
 
 {
-  "name" : "Cascos",
-  "description" : "Gamer sonido HQ"
+  "name" : "Torre ATX",
+  "description" : "Thermaltek"
+}
+
+### getting product by id
+GET {{api}}/2
+
+### deleting prouduc by id
+DELETE {{api}}/5
+
+### getting total products
+GET {{api}}/count
+
+### updating product by id
+PUT {{api}}/2
+Content-Type: application/json
+
+{
+  "name" : "Procesador Ryzen",
+  "description" : "5600X 4 hilos",
+  "quantity" : 200
 }
