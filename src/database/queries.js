@@ -4,8 +4,8 @@ export const queries = {
     SELECT * FROM product
   `,
   addNewProduct : `  
-    INSERT INTO product (name, description, quantity) 
-    VALUES (@name, @description, @quantity)
+    INSERT INTO product (name, price) 
+    VALUES (@name, @price)
   `,
   getProductById : `
     SELECT * FROM product WHERE Id = @Id
@@ -18,9 +18,7 @@ export const queries = {
   `,
   updateProductById : `
     UPDATE product 
-    SET name = @name,
-    description = @description,
-    quantity = @quantity
+    SET name = @name, price = @price
     WHERE id = @id
   `
 }
