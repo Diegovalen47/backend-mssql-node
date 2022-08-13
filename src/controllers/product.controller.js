@@ -4,6 +4,11 @@ export const getProducts = async (req, res) => {
 
   try {
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
     const pool = await getConnection()
     const result = await pool.request().query(queries.getAllProducts);
   
@@ -33,6 +38,11 @@ export const createNewProduct = async (req, res) => {
 
   try {
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
     const pool = await getConnection()
   
     await pool
@@ -56,6 +66,11 @@ export const getProductById = async (req, res) => {
 
   try {
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
     const {id} = req.params
 
     const pool = await getConnection()
@@ -65,7 +80,7 @@ export const getProductById = async (req, res) => {
       .input('Id', id)
       .query(queries.getProductById)
   
-    res.send(result.recordset[0])
+    res.json(result.recordset[0])
 
   } catch (error) {
     
@@ -79,6 +94,11 @@ export const getProductById = async (req, res) => {
 export const deleteProductById = async (req, res) => {
 
   try {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
     const {id} = req.params
 
@@ -104,13 +124,18 @@ export const getTotalProducts = async (req, res) => {
 
   try {
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
     const pool = await getConnection()
 
     const result = await pool
       .request()
       .query(queries.getTotalProducts)
   
-    res.json(result.recordset[0][''])
+    res.send(result.recordset[0][''])
 
   } catch (error) {
     
@@ -131,6 +156,11 @@ export const updateProductById = async (req, res) => {
   }
 
   try {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'application/json'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
     const pool = await getConnection()
     await pool

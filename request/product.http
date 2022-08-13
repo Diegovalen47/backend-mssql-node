@@ -8,8 +8,8 @@ POST {{api}}
 Content-Type: application/json
 
 {
-  "name": "Martillo",
-  "price": 7000
+  "name": "Ryzen 5 5600x",
+  "price": 790000
 }
 
 ### getting product by id
